@@ -3,6 +3,3 @@
 - Та цю версію, де список відсортований за ім'ям. Але для цього доводится ВСІХ персонажів завантажувати при першому запуску сторінки.
 
 Також в обох версіях фільтрація працює за всьома доступними на API параметрами, наприклад: https://rickapp.serverpagination.andriicharkivskyi.online/characters?page=1&name=rick&gender=female&type=artificial%20intelligence. Тож застосунки дозволяють легко додати всі необхідні фільтри, якщо виникне така необхідність.
-# rick_and_morty_client_pagination
-# rick_and_morty_client_pagination
-# rick_and_morty_client_pagination
