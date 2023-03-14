@@ -1,0 +1,45 @@
+.input-container {
+  display: flex;
+}
+
+.filter-form {
+  display: inline-block;
+  width: 80%;
+  border: #a6a3a3 solid 1px;
+  font-size: 25px;
+  padding: 1rem;
+  border-radius: 1rem 0 0 1rem;
+  background: #fff;
+  transition: 0.2s ;
+}
+
+.filter-form:hover {
+  border-color: #606060;
+}
+
+.filter-form:focus {
+  border-color: black;
+}
+
+.form-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  font-size: 25px;
+  text-align: center;
+  border-radius: 0 1rem 1rem 0;
+  border: #a6a3a3 solid 1px;
+}
+
+@media (max-width: 500px) {
+  .filter-form {
+    font-size: 20px;
+    width: 100%;
+    border-radius: 1rem;
+  }
+  .form-button {
+    display: none;
+    font-size: 20px;
+  }
+}

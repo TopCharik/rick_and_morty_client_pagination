@@ -1,0 +1,22 @@
+<div>
+  <img
+    *ngIf="displayBanner"
+    src="./assets/img/not-found.jpg"
+    class="not-found-image center"
+    alt="not-found"
+  >
+</div>
+<div class="not-found-message">
+  <p>
+    {{message}}
+  </p>
+</div>
+<div class="return-container">
+  <a
+    *ngIf="returnPath"
+    class="btn btn-primary return-button"
+    [routerLink]="returnPath"
+  >
+    Return to main page
+  </a>
+</div>

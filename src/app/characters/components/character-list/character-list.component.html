@@ -1,0 +1,10 @@
+<div *ngIf="characters">
+  <div class="cards">
+    <app-character-card
+      class="character-card"
+      *ngFor="let c of characters"
+      [character]="c"
+    >
+    </app-character-card>
+  </div>
+</div>

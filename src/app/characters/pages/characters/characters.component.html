@@ -1,0 +1,51 @@
+<div class="container">
+
+  <header>
+    <img src="/assets/img/san.png" alt="" class="banner-image center">
+  </header>
+  <ng-template [ngIf]="( characterService.charactersModel$ | async )" let-model="$implicit">
+  <app-input-filter
+    class="name-filter"
+    (inputEmit)="onNameFilter($event)"
+    [initText]="nameInput"
+    [debounceTime]="100"
+  >
+  </app-input-filter>
+
+
+  <div class="characters-container">
+    <app-loading *ngIf="model.isLoading"></app-loading>
+
+    <ng-template [ngIf]="model.isLoaded">
+
+      <ng-template [ngIf]="model.data?.length !== 0">
+
+        <app-character-list [characters]="model.data"></app-character-list>
+
+        <app-pager
+          class="characters-pager"
+          *ngIf="model.paginationInfo.hasPrev || model.paginationInfo.hasNext"
+          [hasPrevPage]="model.paginationInfo.hasPrev"
+          [hasNextPage]="model.paginationInfo.hasNext"
+          (prevPage)="onPrevPage()"
+          (nextPage)="onNextPage()"
+        >
+        </app-pager>
+
+      </ng-template>
+
+      <ng-template [ngIf]="model.data?.length === 0">
+        <app-not-found
+          [message]="'Characters not found'"
+        >
+        </app-not-found>
+      </ng-template>
+
+    </ng-template>
+  </div>
+
+
+
+  </ng-template>
+
+</div>
