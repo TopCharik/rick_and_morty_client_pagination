@@ -10,6 +10,7 @@
 
 
   <ng-template #characters>
+    <div class="characters-container">
 
       <ng-template [ngIf]="!model.isLoading">
         <ng-template [ngIf]="model.data?.length !== 0">
@@ -35,6 +36,7 @@
           </app-not-found>
         </ng-template>
       </ng-template>
+    </div>
   </ng-template>
 
 </ng-template>

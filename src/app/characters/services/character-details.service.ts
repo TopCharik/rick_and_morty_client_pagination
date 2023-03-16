@@ -41,7 +41,7 @@ export class CharacterDetailsService {
       next: character => {
         this.updateState({
           data: character,
-          error: null,
+          error: undefined,
         });
       },
       error: err => {

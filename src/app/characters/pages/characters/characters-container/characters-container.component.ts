@@ -10,6 +10,7 @@ export class CharactersContainerComponent implements OnInit {
   @Input() model?: CharactersState;
   @Output() prevPage = new EventEmitter();
   @Output() nextPage = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
