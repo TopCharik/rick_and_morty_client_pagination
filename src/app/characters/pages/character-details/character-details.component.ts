@@ -6,10 +6,10 @@ import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-character-details',
-  templateUrl: './single-character.component.html',
-  styleUrls: ['./single-character.component.css']
+  templateUrl: './character-details.component.html',
+  styleUrls: ['./character-details.component.css']
 })
-export class SingleCharacterComponent implements OnInit {
+export class CharacterDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,

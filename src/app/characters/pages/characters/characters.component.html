@@ -1,0 +1,28 @@
+<div class="container">
+
+  <header>
+    <img src="/assets/img/san.png" alt="" class="banner-image center">
+  </header>
+  <ng-template [ngIf]="( characterService.charactersModel$ | async )" let-model="$implicit">
+    <app-input-filter
+      class="name-filter"
+      (inputEmit)="onNameFilter($event)"
+      [initText]="nameInput"
+      [debounceTime]="75"
+    >
+    </app-input-filter>
+
+    <div class="characters-container">
+      <app-characters-container
+        [model]="model"
+        (prevPage)="onPrevPage()"
+        (nextPage)="onNextPage()"
+        class="characters-container"
+      >
+      </app-characters-container>
+    </div>
+
+
+  </ng-template>
+
+</div>

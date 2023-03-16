@@ -24,7 +24,6 @@ export class CharactersService {
   public updateCharacters(characterParams: CharactersQuery) {
     this.updateState({
       isLoading: true,
-      isLoaded: false,
     });
 
     this.charactersRepository.loadCharacters(characterParams).pipe(
@@ -39,7 +38,6 @@ export class CharactersService {
       }),
       tap(() => this.updateState({
         isLoading: false,
-        isLoaded: true,
       })),
     )
       .subscribe({
