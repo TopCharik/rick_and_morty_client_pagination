@@ -25,8 +25,8 @@
     <ng-container [ngTemplateOutlet]="errorTemplate"></ng-container>
   </ng-template>
 
-  <ng-template [ngIf]="errorTemplate">
-    <ng-container [ngTemplateOutlet]="errorTemplate"></ng-container>
+  <ng-template [ngIf]="!errorTemplate">
+    ToDo error generic component
   </ng-template>
 
 </ng-template>

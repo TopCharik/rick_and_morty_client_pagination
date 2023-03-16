@@ -12,13 +12,15 @@
   height: auto;
 }
 
+
 .name-filter {
   display: block;
   margin: 3rem 0 0 0;
 }
 
+
 .characters-container {
-  margin-top: 4rem;
+  margin: 4rem 0 2rem 0;
 }
 
 

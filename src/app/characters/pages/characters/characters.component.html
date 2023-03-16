@@ -8,7 +8,7 @@
       class="name-filter"
       (inputEmit)="onNameFilter($event)"
       [initText]="nameInput"
-      [debounceTime]="75"
+      [debounceTime]="300"
     >
     </app-input-filter>
 
@@ -17,7 +17,6 @@
         [model]="model"
         (prevPage)="onPrevPage()"
         (nextPage)="onNextPage()"
-        class="characters-container"
       >
       </app-characters-container>
     </div>

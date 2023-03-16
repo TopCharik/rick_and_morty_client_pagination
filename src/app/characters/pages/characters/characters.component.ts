@@ -12,8 +12,8 @@ import {CharactersQuery} from "../../../shared/models/characterQuery";
 })
 export class CharactersComponent implements OnInit, OnDestroy {
   private sub!:Subscription;
-  private currentQuery!: CharactersQuery;
   nameInput?: string;
+  private currentQuery!: CharactersQuery;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -25,7 +25,7 @@ export class CharactersComponent implements OnInit, OnDestroy {
       map(mapRouteParamsToCharacterQuery),
       tap(query => this.nameInput = query.name),
       tap(query => this.currentQuery = query),
-      tap(query => this.characterService.updateCharacters(query)),
+      tap(query => this.characterService.updateCharacters(query))
     )
       .subscribe();
   }
