@@ -3,20 +3,20 @@ import {CharactersService} from "../../services/characters.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {mapRouteParamsToCharacterQuery} from "../../../shared/helpers/charactersMapper";
 import {map, Subscription, tap} from "rxjs";
-import {CharactersQueryService} from "../../services/characters-query.service";
+import {CharactersQuery} from "../../../shared/models/characterQuery";
 
 @Component({
   selector: 'app-characters',
-  templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.css']
+  templateUrl: './character-details.component.html',
+  styleUrls: ['./character-details.component.css']
 })
-export class CharactersComponent implements OnInit, OnDestroy {
+export class CharacterDetailsComponent implements OnInit, OnDestroy {
   private sub!:Subscription;
+  private currentQuery!: CharactersQuery;
   nameInput?: string;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private charactersQueryService: CharactersQueryService,
     public characterService: CharactersService,
   ) {  }
 
@@ -24,7 +24,8 @@ export class CharactersComponent implements OnInit, OnDestroy {
     this.sub = this.route.queryParams.pipe(
       map(mapRouteParamsToCharacterQuery),
       tap(query => this.nameInput = query.name),
-      tap(query => this.characterService.updateCharacters(query))
+      tap(query => this.currentQuery = query),
+      tap(query => this.characterService.updateCharacters(query)),
     )
       .subscribe();
   }
@@ -34,7 +35,7 @@ export class CharactersComponent implements OnInit, OnDestroy {
   }
 
   onNameFilter(name: string) {
-    const params = this.charactersQueryService.getCurrentQuery();
+    const params = this.currentQuery;
     params.name = name;
     params.page = 1;
 
@@ -42,14 +43,14 @@ export class CharactersComponent implements OnInit, OnDestroy {
   }
 
   onNextPage() {
-    const params = this.charactersQueryService.getCurrentQuery();
+    const params = this.currentQuery;
     params.page++;
 
     this.router.navigate([], {queryParams: params});
   }
 
   onPrevPage() {
-    const params = this.charactersQueryService.getCurrentQuery();
+    const params = this.currentQuery;
     params.page--;
 
     this.router.navigate([], {queryParams: params});
