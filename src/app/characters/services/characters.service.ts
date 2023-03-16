@@ -3,7 +3,6 @@ import {BehaviorSubject, map, Observable, tap} from "rxjs";
 import {PaginationInfo} from "../../shared/models/paginationInfo";
 import {CharactersQuery} from "../../shared/models/characterQuery";
 import {Character} from "../../shared/models/character";
-import {CharactersQueryService} from "./characters-query.service";
 import {charactersPageInitialState, CharactersState} from "../models/charactersPageModel";
 import {CharactersRepositoryService} from "./characters-repository.service";
 
@@ -19,9 +18,7 @@ export class CharactersService {
 
   constructor(
     private charactersRepository: CharactersRepositoryService,
-    private characterQueryService: CharactersQueryService,
-  ) {
-  }
+  ) {  }
 
 
   public updateCharacters(characterParams: CharactersQuery) {
@@ -31,7 +28,6 @@ export class CharactersService {
     });
 
     this.charactersRepository.loadCharacters(characterParams).pipe(
-      tap(() => this.characterQueryService.setCurrentQuery(characterParams)),
       map(res => {
         return {
           characters: [...res.results],
