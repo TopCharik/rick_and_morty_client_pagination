@@ -18,14 +18,9 @@
 }
 
 .characters-container {
-  margin: 4rem 0 2rem 0;
-  display: block;
+  margin-top: 4rem;
 }
 
-.characters-pager {
-  display: block;
-  margin: 2rem;
-}
 
 @media (min-width: 600px) {
   .container {

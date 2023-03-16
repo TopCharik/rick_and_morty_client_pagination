@@ -7,10 +7,10 @@ import {CharactersQuery} from "../../../shared/models/characterQuery";
 
 @Component({
   selector: 'app-characters',
-  templateUrl: './character-details.component.html',
-  styleUrls: ['./character-details.component.css']
+  templateUrl: './characters.component.html',
+  styleUrls: ['./characters.component.css']
 })
-export class CharacterDetailsComponent implements OnInit, OnDestroy {
+export class CharactersComponent implements OnInit, OnDestroy {
   private sub!:Subscription;
   private currentQuery!: CharactersQuery;
   nameInput?: string;

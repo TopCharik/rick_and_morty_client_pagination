@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import {CharacterDetailsComponent} from "./pages/characters/character-details.component";
+import {CharactersComponent} from "./pages/characters/characters.component";
 import {RouterModule, Routes} from "@angular/router";
-import {SingleCharacterComponent} from "./pages/character-details/single-character.component";
+import {CharacterDetailsComponent} from "./pages/character-details/character-details.component";
 
 
 const routes: Routes = [
-  {path: "", component: CharacterDetailsComponent},
-  {path: ":id", component: SingleCharacterComponent}
+  {path: "", component: CharactersComponent},
+  {path: ":id", component: CharacterDetailsComponent}
 ];
 
 @NgModule({
