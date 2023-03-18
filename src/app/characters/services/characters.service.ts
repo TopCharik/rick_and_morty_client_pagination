@@ -18,7 +18,8 @@ export class CharactersService {
 
   constructor(
     private charactersRepository: CharactersRepositoryService,
-  ) {  }
+  ) {
+  }
 
 
   public updateCharacters(characterParams: CharactersQuery) {
@@ -36,9 +37,11 @@ export class CharactersService {
           }
         }
       }),
-      tap(() => this.updateState({
-        isLoading: false,
-      })),
+      tap(() =>
+        this.updateState({
+          isLoading: false,
+          isLoaded: true,
+        })),
     )
       .subscribe({
         next: res => {
