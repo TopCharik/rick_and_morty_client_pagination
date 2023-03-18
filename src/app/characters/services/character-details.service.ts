@@ -7,8 +7,6 @@ import {
 } from "../models/singleCharacterPageModel";
 
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +15,8 @@ export class CharacterDetailsService {
   public singleCharacterState$ = this.singleCharacterStateSource.asObservable();
 
   constructor(
-    private apiProvider: ApiProvider) {  }
+    private apiProvider: ApiProvider) {
+  }
 
   public loadCharacter(id: number) {
     this.updateState({
@@ -28,6 +27,7 @@ export class CharacterDetailsService {
       tap(() => {
         this.updateState({
           isLoading: false,
+          isLoaded: false,
         });
       }),
       catchError((err) => {
@@ -38,19 +38,19 @@ export class CharacterDetailsService {
       })
     )
       .subscribe({
-      next: character => {
-        this.updateState({
-          data: character,
-          error: undefined,
-        });
-      },
-      error: err => {
-        this.updateState({
-          data: undefined,
-          error: err,
-        })
-      },
-    });
+        next: character => {
+          this.updateState({
+            data: character,
+            error: undefined,
+          });
+        },
+        error: err => {
+          this.updateState({
+            data: undefined,
+            error: err,
+          })
+        },
+      });
   }
 
   private updateState(newState: Partial<SingleCharacterState>) {
