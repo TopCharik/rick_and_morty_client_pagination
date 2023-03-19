@@ -1,5 +1,5 @@
-import {Character} from "../../shared/models/character";
-import {PaginatedResponse} from "../../shared/models/paginatedResponse";
+import {Character} from "../../models/character";
+import {PaginatedResponse} from "../../models/paginatedResponse";
 import {environment} from "../../../environments/environment";
 
 export const mapCharactersToPaginatedResponse = (characters: Character[], page: number): PaginatedResponse<Character> => {

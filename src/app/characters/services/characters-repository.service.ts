@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Character} from "../../shared/models/character";
+import {Character} from "../../models/character";
 import {map, Observable, of, tap} from "rxjs";
-import {ApiProvider} from "../../shared/services/api-provider.service";
-import {CharactersQuery} from "../../shared/models/characterQuery";
-import {PaginatedResponse} from "../../shared/models/paginatedResponse";
+import {ApiProvider} from "../../services/api-provider.service";
+import {CharactersQuery} from "../../models/characterQuery";
+import {PaginatedResponse} from "../../models/paginatedResponse";
 import {filterCharacters} from "../helpers/filterCharacters";
 import {mapCharactersToPaginatedResponse} from "../helpers/mapCharactersToPaginatedResponse";
 

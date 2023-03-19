@@ -1,5 +1,5 @@
-import {Character} from "../../shared/models/character";
-import {CharactersQuery} from "../../shared/models/characterQuery";
+import {Character} from "../../models/character";
+import {CharactersQuery} from "../../models/characterQuery";
 
 export const filterCharacters = (characters: Character[], query: CharactersQuery): Character[] => {
   const res = [...characters];
